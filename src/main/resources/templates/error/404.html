@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <title>404</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui attached segment m-padded-tb-mini m-nav-background m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <img class="ui m-item item m-mobile-hide" src="../../static/images/MOunt.png" th:src="@{/images/MOunt.png}" width="70" height="auto" alt="">
+            <h2 class="ui header item">Mount</h2>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+
+            <div class="right item  m-mobile-hide">
+                <div class="ui icon i transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle icon button m-background m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message m-padded-tb-massive">
+        <div class="ui contianer">
+            <h2>404</h2>
+            <p>对不起访问的资源不存在</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<div>
+    <!--前端页面展示异常信息-->
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+
+
+
+
+<!--底部-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive m-footer-background">
+    <div class="ui center aligned container m-text-thin m-text-lined m-text-spaced">
+        <div class="ui inverted divided stackable grid">
+
+            <div class="four wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <p>角度思考逻辑的拉升阶段了撒娇了的撒娇了奥兰多吉萨两家都是垃圾的沙拉灯笼裤洒家</p>
+            </div>
+
+            <div class="three wide column ">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <img src="../../static/images/VX.jpg" th:src="@{/images/VX.jpg}" class="ui centered rounded image" style="width: 140px;" alt="">
+            </div>
+            <div class="three wide column">
+                <img src="../../static/images/VX.jpg" th:src="@{/images/VX.jpg}" class="ui centered rounded image" style="width: 140px;" alt="">
+            </div>
+        </div>
+
+        <div class="ui inverted   section divider"></div>
+        <p class=" center aligned">jdlsajdlsajdlsajdjaldjlsajdlsajdl</p>
+    </div>
+
+</footer>
+
+</body>
+</html>

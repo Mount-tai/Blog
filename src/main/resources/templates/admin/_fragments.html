@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title th:replace="${title}">博客详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <title>博客详情</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui attached segment m-padded-tb-mini m-nav-background m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <img class="ui m-item item m-mobile-hide" src="../../static/images/MOunt.png" th:src="@{/images/MOunt.png}" width="70" height="auto" alt="">
+            <h2 class="ui header item">管理后台</h2>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img src="../../static/images/OO.jpg" th:src="@{/images/OO.jpg}" class="ui avatar image">
+                        <span th:text="${session.user.nickname}">Mount</span>
+                    </div>
+                    <i class="dropdown icon"> </i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}"  class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle icon button m-background m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--底部-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive m-footer-background">
+    <div class="ui center aligned container m-text-thin m-text-lined m-text-spaced">
+        <div class="ui inverted divided stackable grid">
+
+            <div class="four wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <p>角度思考逻辑的拉升阶段了撒娇了的撒娇了奥兰多吉萨两家都是垃圾的沙拉灯笼裤洒家</p>
+            </div>
+
+            <div class="three wide column ">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <img src="../static/images/VX.jpg" th:src="@{/images/VX.jpg}" class="ui centered rounded image"
+                     style="width: 140px;" alt="">
+            </div>
+            <div class="three wide column">
+                <img src="../static/images/VX.jpg" th:src="@{/images/VX.jpg}" class="ui centered rounded image"
+                     style="width: 140px;" alt="">
+            </div>
+        </div>
+
+        <div class="ui inverted   section divider"></div>
+        <p class=" center aligned">jdlsajdlsajdlsajdjaldjlsajdlsajdl</p>
+    </div>
+
+</footer>
+
+
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../../static/lib/editormd/editormd.amd.min.js" th:src="@{/lib/editormd/editormd.amd.min.js}"></script>
+</th:block>
+
+</body>
+</html>

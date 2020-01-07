@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/me.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+    <title>标签新增</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(3)"
+     class="ui attached segment m-padded-tb-mini m-nav-background m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <img class="ui m-item item m-mobile-hide" src="../../static/images/MOunt.png" width="70" height="auto"
+                 alt="">
+            <h2 class="ui header item">管理后台</h2>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img src="../../static/images/OO.jpg" class="ui avatar image">
+                        Mount
+                    </div>
+                    <i class="dropdown icon"> </i>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle icon button m-background m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<div class="ui attached menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" class="item active" th:href="@{/admin/tags/input}">新增</a>
+            <a href="#" class="orange  item" th:href="@{/admin/tags}">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-large">
+    <div class="ui container">
+        <form action="#" method="post" th:object="${tag}"
+              th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" class="ui form">
+            <input type="hidden" name="id" th:value="*{id}">
+            <div class="required field">
+                <div class="ui left labeled input">
+                    <label class="ui orange basic label">名称</label>
+                    <input type="text" name="name" placeholder="分类的名称" th:value="*{name}">
+                </div>
+            </div>
+            <div class="ui error message"></div>
+
+            <!--/*/
+            <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                  <i class="close icon"></i>
+                  <div class="header">验证失败</div>
+                  <p th:errors="*{name}">提交信息不符合规则</p>
+              </div>
+            /*/-->
+
+            <div class="ui right aligned  container">
+                <button class="ui button" onclick="window.history.go(-1)">返回</button>
+                <button class="ui orange submit button">提交</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--底部-->
+<footer th:replace="admin/_fragments :: footer"
+        class="ui inverted vertical segment m-padded-tb-massive m-footer-background">
+    <div class="ui center aligned container m-text-thin m-text-lined m-text-spaced">
+        <div class="ui inverted divided stackable grid">
+
+            <div class="four wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <p>角度思考逻辑的拉升阶段了撒娇了的撒娇了奥兰多吉萨两家都是垃圾的沙拉灯笼裤洒家</p>
+            </div>
+
+            <div class="three wide column ">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                    <a href="#" class="item">用户故事（的撒娇的）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <img src="../../static/images/VX.jpg" class="ui centered rounded image" style="width: 140px;" alt="">
+            </div>
+            <div class="three wide column">
+                <img src="../../static/images/VX.jpg" class="ui centered rounded image" style="width: 140px;" alt="">
+            </div>
+        </div>
+
+        <div class="ui inverted   section divider"></div>
+        <p class=" center aligned">jdlsajdlsajdlsajdjaldjlsajdlsajdl</p>
+    </div>
+
+</footer>
+<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script>
+
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide')
+    })
+
+    $('#payButton').popup({
+        popup: $('.payQ.popup'),
+        on: 'click',
+        position: 'bottom center'
+    })
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'name',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题 : 请输入分类名称'
+                }]
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
