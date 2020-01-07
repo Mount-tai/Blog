@@ -1,4 +1,4 @@
-package com.me.blog;
+package com.zcs.blog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
